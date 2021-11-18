@@ -17,4 +17,31 @@
 
 <h1>Posts</h1>
 
-{JSON.stringify(posts)}
+<div class="posts">
+    {#each posts as post}
+        <div class="post">
+            <h1>{post.title}</h1>
+            <p>{post.body}</p>
+        </div>
+    {/each}
+</div>
+
+
+<style>
+    .posts {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 20px;
+    }
+
+    .post {
+        padding: 10px;
+        border: 1px solid #ddd;
+        box-shadow: 0 0 15px #eee;
+    }
+
+    h2 {
+        margin: 0;
+    }
+
+</style>
