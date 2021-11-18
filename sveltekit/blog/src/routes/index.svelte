@@ -1,2 +1,20 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<script context="module">
+    export const load = async({fetch}) => {
+        const res = await fetch("https://jsonplaceholder.typicode.com/posts")
+        const posts = await res.json();
+        return {
+            props: {
+                posts,
+            }
+        }
+    }
+</script>
+
+<script>
+    export let posts;
+</script>
+
+
+<h1>Posts</h1>
+
+{JSON.stringify(posts)}
