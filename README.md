@@ -1,2 +1,2 @@
 # Tutor
-Conjunnto de tutoriais categorizados com a tecnologia utilizada.
+Conjunnto de tutoriais categorizados de acordo com a tecnologia utilizada.
