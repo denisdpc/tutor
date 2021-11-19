@@ -20,8 +20,9 @@
 <div class="posts">
     {#each posts as post}
         <div class="post">
-            <h1>{post.title}</h1>
-            <p>{post.body}</p>
+            <h1>{post.title.substring(0,20)}</h1>
+            <p>{post.body.substring(0,80)}</p>
+            <p class="link"><a href={`/blog/${post.id}`}>Leia me</a></p>
         </div>
     {/each}
 </div>
@@ -42,6 +43,10 @@
 
     h2 {
         margin: 0;
+    }
+
+    .link {
+        text-align: right;
     }
 
 </style>
