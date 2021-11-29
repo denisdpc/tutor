@@ -1,5 +1,5 @@
 <script context="module">
-    import { auth, googleProvider } from "../firebase";
+    import { auth, googleProvider } from "../firebaseConfig";
     import { signOut, signInWithPopup, onAuthStateChanged } from "@firebase/auth";
     import { goto } from "$app/navigation";
         
