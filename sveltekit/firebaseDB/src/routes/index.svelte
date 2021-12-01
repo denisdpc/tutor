@@ -1,11 +1,12 @@
 <script context="module">
     import { db } from "$lib/firebaseConfig";    
-    import { collection, query, addDoc, deleteDoc, updateDoc, getDocs, doc, DocumentReference } from "firebase/firestore";
+    import { collection, query, addDoc, deleteDoc, updateDoc, getDocs, doc } from "firebase/firestore";
 </script>
 
 <script>
-    import { todosStore } from "$lib/stores";
     import { onMount } from "svelte";
+    import { todosStore } from "$lib/stores";
+    
 
     onMount(async() => {
         if ($todosStore.length === 0) {
@@ -32,7 +33,7 @@
             ...newTodo
         });
         newTodo[id] = docRef.id;
-        
+
         $todosStore = [newTodo, ...$todosStore];
         task = "";
     }
