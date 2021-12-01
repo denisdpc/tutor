@@ -28,11 +28,12 @@
             isComplete: false,
             createdAt: new Date(),
         };
-        await addDoc(collection(db, "todos"), {
-            todo: newTodo
+        const docRef = await addDoc(collection(db, "todos"), {
+            ...newTodo
         });
-
-        $todosStore = [newTodo, ...todos];
+        newTodo[id] = docRef.id;
+        
+        $todosStore = [newTodo, ...$todosStore];
         task = "";
     }
 
