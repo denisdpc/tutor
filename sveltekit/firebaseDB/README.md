@@ -6,4 +6,4 @@ Create a simple Svelte Todo App - Sveltekit Tutorial [`youtube`](https://www.you
 
 ## Símbolos
 
-Site de símbolos [`fsymbols`](https://fsymbols.com/
+Site de símbolos [`fsymbols`](https://fsymbols.com/)
