@@ -6,6 +6,7 @@
 npm install
 npx svelte-add@latest tailwindcss
 npm install
+npm install daisyui
 ```
 
 Altualizar o arquivo *tailwind.config.cjs* conforme:
