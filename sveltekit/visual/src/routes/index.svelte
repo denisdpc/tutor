@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-<h1 class="text-4xl italic font-bold text-center text-blue-500">hello world</h1>
-=======
 <div class="navbar mb-2 shadow-lg bg-neutral text-neutral-content rounded-box">
   <div class="flex-none px-2 mx-2">
     <span class="text-lg font-bold">App</span>
@@ -39,6 +36,3 @@
   <a class="btn btn-ghost btn-sm rounded-btn">
     logout
   </a>
-
-</div>
->>>>>>> 06daea2bb9423bdb1bb4e8e5907759f387440e5b
