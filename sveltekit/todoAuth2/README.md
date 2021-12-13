@@ -32,9 +32,8 @@ Vide: https://githubmemory.com/repo/firebase/firebase-js-sdk/issues/5140
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
-    match /todos/{document=**} {      
-    	allow read, update, delete: if request.auth != null && request.auth.uid == resource.data.userId;
-      allow create: if request.auth != null;
+    match /users/{userId}/todos/{document=**} {
+    	allow read, write: if request.auth != null && request.auth.uid == userId;
     }
   }
 }
@@ -42,3 +41,5 @@ service cloud.firestore {
 
 ## Estrutura da base de dados
 users --> userId --> todos --> todoId --> (task: string, isComplete: boolean, createAt: timestamp)
+
+iHfhxvxyIThgzYeRPy93AW4N1lS2
