@@ -41,4 +41,4 @@ service cloud.firestore {
 ```
 
 ## Estrutura da base de dados
-todos --> docId --> (userId: string, task: string, isComplete: boolean, createAt: timestamp)
+users --> userId --> todos --> todoId --> (task: string, isComplete: boolean, createAt: timestamp)
