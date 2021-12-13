@@ -39,3 +39,6 @@ service cloud.firestore {
   }
 }
 ```
+
+## Estrutura da base de dados
+todos --> docId --> (userId, task, isComplete, createAt)
