@@ -10,4 +10,15 @@ npm install -g firebase-tools
 ## Logar no Firebase
 > firebase login
 
-Pode ser necessário utilizar abrir o link manualmente que é disponibilizado pelo prompt
+Pode ser necessário abrir manualmente o link disponibilizado pelo prompt para obter o código de login.
+
+## Iniciar o Firebase
+> firebase init
+
+Escolher: 
+Hosting: Configure files for Firebase Hosting ...
+Firestore: ...
+Functions: ...
+Emulator: ...
+
+> firebase init emulators
