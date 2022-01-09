@@ -42,4 +42,7 @@ service cloud.firestore {
 ## Estrutura da base de dados
 users --> userId --> todos --> todoId --> (task: string, isComplete: boolean, createAt: timestamp)
 
-iHfhxvxyIThgzYeRPy93AW4N1lS2
+
+
+## Símbolos
+Site de símbolos [`fsymbols`](https://fsymbols.com/)

@@ -14,6 +14,14 @@ const firebaseConfig = {
 
 initializeApp(firebaseConfig);
 
+if (location.hostname === 'localhost') {
+  console.log("LOCALHOST");
+}
+// if (window.location.hostname === "localhost") {
+//     console.log("LOCALHOST");
+// }
+
+
 export const db = getFirestore();
 export const auth = getAuth();
 export const googleProvider = new GoogleAuthProvider();
