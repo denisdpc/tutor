@@ -8,5 +8,10 @@ service cloud.firestore {
     match /users/{userId}/todos/{document=**} {
     	allow read, write: if request.auth != null && request.auth.uid == userId;
     }
+
+    match /readonly/{docId} {
+      allow read: if true
+      allow write: if false;
+    }
   }
 }
