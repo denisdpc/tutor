@@ -1,7 +1,7 @@
 {
   "name": "test",
   "version": "1.0.0",
-  "description": "[`Unit testing security rules with the Firebase Emulator Suite`](https://www.youtube.com/watch?v=VDulvfBpzZE&t=476s)",
+  "description": "",
   "main": "test.js",
   "scripts": {
     "test": "mocha --exit"
