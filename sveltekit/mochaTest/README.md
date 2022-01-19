@@ -41,3 +41,19 @@ Iniciar o emulador
 cd ..
 firebase emulators:start
 ```
+
+Inicialmente, atualizar o arquivo *firebase.rules* com permissões abrangentes:
+
+```bash
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /{document=**} {      
+    	allow read, write: if true;
+    }
+  }
+}
+```
+
+Entrar no diretório *test* e rodar *npm test*.
+
