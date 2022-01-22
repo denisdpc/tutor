@@ -2,6 +2,7 @@
 
 Unit testing security rules with the Firebase Emulator Suite [`Link`](https://www.youtube.com/watch?v=VDulvfBpzZE&t=476s);
 
+Intermediate topics in Firebase Security Rules - Firecasts[`Link`](https://www.youtube.com/watch?v=8Mzb9zmnbJs)
 
 ## Configurar ambiente
 

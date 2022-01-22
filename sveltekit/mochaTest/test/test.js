@@ -14,9 +14,9 @@ function getAdminFirestore() {
     return firebase.initializeAdminApp({projectId: MY_PROJECT_ID}).firestore();
 }
 
-beforeEach(async() => {
-    await firebase.clearFirestoreData({projectId: MY_PROJECT_ID});
-})
+// beforeEach(async() => {
+//     await firebase.clearFirestoreData({projectId: MY_PROJECT_ID});
+// })
 
 
 describe("Testes em tutorialtestes", () => {
@@ -83,11 +83,21 @@ describe("Testes em tutorialtestes", () => {
         await firebase.assertFails(testRead.get());
     });
 
+    it("allows a user to edit their own post", async() => {
+        const admin = getAdminFirestore();
+        const postId = "post_123";
+        await admin.collection("posts").doc(postId).set({content: "before", authorId: myId});
+
+        const db = getFirestore(myAuth);
+        const testDoc = db.collection("posts").doc(postId);
+        await firebase.assertSucceeds(testDoc.update({content:"after"}));
+    });
+
 });
 
-after(async() => {
-    await firebase.clearFirestoreData({projectId: MY_PROJECT_ID});
-})
+// after(async() => {
+//     await firebase.clearFirestoreData({projectId: MY_PROJECT_ID});
+// })
 
-// https://www.youtube.com/watch?v=VDulvfBpzZE&t=476s
-// 24:00
+// https://www.youtube.com/watch?v=8Mzb9zmnbJs
+// 3:47
