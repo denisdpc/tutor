@@ -33,8 +33,10 @@ npm install @firebase/testing --save-dev
 *entry point*: test.js 
 *test command*: mocha --exit
 
-Criar o arquivo *test.js* onde serão programados os testes.
-Os teste são rodados com o comando *npm test*
+Criar o arquivo *test.js* onde serão programados os testes, conforme:
+```bash
+npm test
+```
 
 Iniciar o emulador
 
@@ -43,7 +45,7 @@ cd ..
 firebase emulators:start
 ```
 
-Inicialmente, atualizar o arquivo *firebase.rules* com permissões abrangentes:
+Setar o arquivo *firebase.rules* com permissões abrangentes:
 
 ```bash
 rules_version = '2';
@@ -56,5 +58,5 @@ service cloud.firestore {
 }
 ```
 
-Entrar no diretório *test* e rodar *npm test*.
+No diretório *test*, rodar *npm test*.
 

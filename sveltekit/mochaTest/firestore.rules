@@ -1,6 +1,23 @@
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
+
+    function userIsModerator() {
+      return request.auth.token.isModerator == true;
+    }
+
+    function documentFieldsCheckOut(requiredFields, optionalFields) {
+        let allFields = requiredFields.concat(optionalFields);
+        return request.resource.data.keys().hasAll(requiredFields) &&
+          request.resource.data.keys().hasOnly(allFields);
+    }
+
+    function editOnlyChangesFields(allowedFields) {
+      let affectedKeys = request.resource.data.diff(resource.data).affectedKeys();
+      let unused = debug("** here are your affectedKeys in editOnlyChangesFields");
+      return debug(affectedKeys).hasOnly(allowedFields);
+    }
+
     match /{document=**} {      
     	allow read, write: if false;
     }
@@ -14,7 +31,21 @@ service cloud.firestore {
     match /posts/{postId} {
       allow read: if (resource.data.visibility == "public") ||
         (resource.data.authorId == request.auth.uid);
-      allow update: if (resource.data.authorId == request.auth.uid);
+      allow update: if ((resource.data.authorId == request.auth.uid) || userIsModerator()) && 
+        editOnlyChangesFields(["visibility", "content"]);
+      allow create: if (request.resource.data.authorId == request.auth.uid) &&
+        documentFieldsCheckOut(
+          ["authorId","visibility","content","headline"], 
+          ["photo", "tags", "location"]);
+    }
+    match /rooms/{roomId} {
+      function userIsRoomMod() {
+        return (request.auth.uid in (get(/databases/$(database)/documents/rooms/$(roomId)).data.roomMods)); 
+      }
+      match /posts/{postId} {
+        allow update: if (resource.data.authorId == request.auth.uid) ||
+          userIsRoomMod();
+      }
     }
   }
 }

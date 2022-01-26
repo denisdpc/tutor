@@ -1,6 +1,7 @@
 {
   "projects": {
-    "mochaTest": "mochatest-940ce"
+    "mochaTest": "mochatest-940ce",
+    "default": "mochatest-940ce"
   },
   "targets": {}
 }
