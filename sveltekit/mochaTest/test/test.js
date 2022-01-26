@@ -213,6 +213,3 @@ describe("Testes em tutorialtestes", () => {
 // after(async() => {
 //     await firebase.clearFirestoreData({projectId: MY_PROJECT_ID});
 // })
-
-// https://www.youtube.com/watch?v=8Mzb9zmnbJs
-// 19:57
