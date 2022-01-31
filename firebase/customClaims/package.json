@@ -1,0 +1,14 @@
+{
+  "name": "customclaims",
+  "version": "1.0.0",
+  "description": "[Firebase Admin](https://firebase.google.com/docs/admin/setup)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "firebase-admin": "^10.0.2"
+  }
+}
