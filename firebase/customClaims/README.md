@@ -7,8 +7,14 @@
 
 
 ```bash
-# iniciar o projeto
-npm init
+# instalar ferramentas do firebase
+sudo npm install firebase-tools -g
+
+# logar em um projeto
+firebase login
+
+# criar functions
+firebase init functions
 
 # instalar SDK
 npm install firebase-admin --save
@@ -17,7 +23,7 @@ npm install firebase-admin --save
 ## Ambiente do firebase
 Ir em Project settings --> Service accounts --> Firebase Admin SDK
 
-Copiar o código apresentado para o arquivo **index.js** (ou outro escolhido como arquivo de início do projeto)
+Copiar o código apresentado para o arquivo **functions/index.js**
 ```bash
 var admin = require("firebase-admin");
 
