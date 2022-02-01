@@ -37,7 +37,7 @@ const showUserByEmail = (email) => {
       console.log(user.displayName, user.uid, user.customClaims);
     })
 }
-showUserByEmail("denisdpc@gmail.com")
+//showUserByEmail("denisdpc@gmail.com")
 
 const setUserAsAdmin = (email) => {
   getAuth()
@@ -49,4 +49,18 @@ const setUserAsAdmin = (email) => {
 }
 //setUserAsAdmin("denisdpc@gmail.com")
 
+const verifyAdminUser = (email) => {
+  getAuth()
+    .getUserByEmail(email)
+    .then((user) => {
+      const currentCustomClaims = user.customClaims;
+      if (currentCustomClaims && currentCustomClaims['isAdmin']) {        
+        console.log(user.displayName, "é admin");
+      } else {
+        console.log(user.displayName, "não é admin");
+      }      
+    })
+}
+verifyAdminUser("nnac.celog@gmail.com")
+verifyAdminUser("denisdpc@gmail.com")
 
