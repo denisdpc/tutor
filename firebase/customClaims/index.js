@@ -30,13 +30,23 @@ const listAllUsers = (nextPageToken) => {
   };
 //listAllUsers();
 
-const userByEmail = (email) => {
+const showUserByEmail = (email) => {
+  getAuth()
+    .getUserByEmail(email)
+    .then((user) => {   
+      console.log(user.displayName, user.uid, user.customClaims);
+    })
+}
+showUserByEmail("denisdpc@gmail.com")
+
+const setUserAsAdmin = (email) => {
   getAuth()
     .getUserByEmail(email)
     .then((user) => {
-      console.log(user.displayName, user.uid);
+      const uid = user.uid;
+      getAuth().setCustomUserClaims(user.uid, {isAdmin: true});
     })
 }
+//setUserAsAdmin("denisdpc@gmail.com")
 
-userByEmail("denisdpc@gmail.com")
 
