@@ -28,5 +28,15 @@ const listAllUsers = (nextPageToken) => {
          console.log('Error listing users:', error);
        });
   };
+//listAllUsers();
 
-listAllUsers();
+const userByEmail = (email) => {
+  getAuth()
+    .getUserByEmail(email)
+    .then((user) => {
+      console.log(user.displayName, user.uid);
+    })
+}
+
+userByEmail("denisdpc@gmail.com")
+

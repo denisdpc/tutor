@@ -1,7 +1,7 @@
 # Referências
 
-[Firebase Admin](https://firebase.google.com/docs/admin/setup)
-  
+[Firebase Admin SetUp](https://firebase.google.com/docs/admin/setup)
+[Firebase Admin Custom Claims](https://firebase.google.com/docs/auth/admin/custom-claims)
 
 ## Comandos
 
