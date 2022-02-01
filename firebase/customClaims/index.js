@@ -11,6 +11,10 @@ const getAuth = () => {
   return app.auth();
 }
 
+// utilizar emulador
+//import { connectAuthEmulator } from "firebase/auth";
+//connectAuthEmulator(getAuth, "http://localhost:9099");
+
 const listAllUsers = (nextPageToken) => {
      // List batch of users, 1000 at a time.
     getAuth()
