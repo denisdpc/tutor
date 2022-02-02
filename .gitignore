@@ -105,3 +105,6 @@ dist
 
 # Arquivo para acesso admin do projeto
 serviceAccountKey.json
+
+# Outros arquivos gerados automaticamente
+package-lock.json
