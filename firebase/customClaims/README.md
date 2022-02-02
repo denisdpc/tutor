@@ -1,7 +1,7 @@
 # Referências
 
-[Firebase Admin](https://firebase.google.com/docs/admin/setup)
-  
+[Firebase Admin SetUp](https://firebase.google.com/docs/admin/setup)
+[Firebase Admin Custom Claims](https://firebase.google.com/docs/auth/admin/custom-claims)
 
 ## Comandos
 
@@ -10,11 +10,19 @@
 # instalar ferramentas do firebase
 sudo npm install firebase-tools -g
 
+
+# pode ser necessário instalar o java para rodar o emulator
+sudo apt install default-jre
+
 # logar em um projeto
 firebase login
 
-# criar functions
-firebase init functions
+# configuração do firebase
+firebase init
+
+# iniciar o emulator
+firebase emulators:start
+
 
 # instalar SDK
 npm install firebase-admin --save

@@ -7,9 +7,17 @@ const app = admin.initializeApp({
   credential: admin.credential.cert(serviceAccount)
 });
 
+const getAuth = () => {
+  return app.auth();
+}
+
+// utilizar emulador
+//import { connectAuthEmulator } from "firebase/auth";
+//connectAuthEmulator(getAuth, "http://localhost:9099");
+
 const listAllUsers = (nextPageToken) => {
      // List batch of users, 1000 at a time.
-    app.auth()
+    getAuth()
        .listUsers(1000, nextPageToken)
        .then((listUsersResult) => {
          listUsersResult.users.forEach((userRecord) => {
@@ -24,36 +32,39 @@ const listAllUsers = (nextPageToken) => {
          console.log('Error listing users:', error);
        });
   };
-//   // Start listing users from the beginning, 1000 at a time.
-   listAllUsers();
+//listAllUsers();
 
-// getAuth()
-//   .getUser(uid)
-//   .then((userRecord) => {
-//     // See the UserRecord reference doc for the contents of userRecord.
-//     console.log(`Successfully fetched user data: ${userRecord.toJSON()}`);
-//   })
-//   .catch((error) => {
-//     console.log('Error fetching user data:', error);
-//   });
+const showUserByEmail = (email) => {
+  getAuth()
+    .getUserByEmail(email)
+    .then((user) => {   
+      console.log(user.displayName, user.uid, user.customClaims);
+    })
+}
+//showUserByEmail("denisdpc@gmail.com")
 
+const setUserAsAdmin = (email) => {
+  getAuth()
+    .getUserByEmail(email)
+    .then((user) => {
+      const uid = user.uid;
+      getAuth().setCustomUserClaims(user.uid, {isAdmin: true});
+    })
+}
+//setUserAsAdmin("denisdpc@gmail.com")
 
-// const listAllUsers = (nextPageToken) => {
-//     // List batch of users, 1000 at a time.
-//     getAuth()
-//       .listUsers(1000, nextPageToken)
-//       .then((listUsersResult) => {
-//         listUsersResult.users.forEach((userRecord) => {
-//           console.log('user', userRecord.toJSON());
-//         });
-//         if (listUsersResult.pageToken) {
-//           // List next batch of users.
-//           listAllUsers(listUsersResult.pageToken);
-//         }
-//       })
-//       .catch((error) => {
-//         console.log('Error listing users:', error);
-//       });
-//   };
-//   // Start listing users from the beginning, 1000 at a time.
-//   listAllUsers();
+const verifyAdminUser = (email) => {
+  getAuth()
+    .getUserByEmail(email)
+    .then((user) => {
+      const currentCustomClaims = user.customClaims;
+      if (currentCustomClaims && currentCustomClaims['isAdmin']) {        
+        console.log(user.displayName, "é admin");
+      } else {
+        console.log(user.displayName, "não é admin");
+      }      
+    })
+}
+verifyAdminUser("nnac.celog@gmail.com")
+verifyAdminUser("denisdpc@gmail.com")
+

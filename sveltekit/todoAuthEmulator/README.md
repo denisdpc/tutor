@@ -1,3 +1,6 @@
+# Tutorial
+https://dev.to/davidmimay/gitpod-firebaseangular-online-development-gi8
+
 # Confgurações
 
 ## Instalar bibliotecas
@@ -23,3 +26,9 @@ Emulator: ...
 
 ## Iniciar emulador 
 > firebase emulators:start
+
+
+# GITPOD
+
+## Realizar login
+firebase login --no-localhost
