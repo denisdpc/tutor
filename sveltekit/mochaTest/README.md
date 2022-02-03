@@ -4,6 +4,8 @@ Unit testing security rules with the Firebase Emulator Suite [`Link`](https://ww
 
 Intermediate topics in Firebase Security Rules - Firecasts[`Link`](https://www.youtube.com/watch?v=8Mzb9zmnbJs)
 
+Validação inclui a utilização de custom claims.
+
 ## Configurar ambiente
 
 ```bash
