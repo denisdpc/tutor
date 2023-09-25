@@ -17,7 +17,7 @@ export const actions = {
 
         let createResult = false;
 
-        const hash = crypto.createHash('sha246');
+        const hash = crypto.createHash('sha256');
         hash.update(password);
         hash.update(SECRET_SIGNATURE);
         const hashedPassword = hash.digest('hex');
