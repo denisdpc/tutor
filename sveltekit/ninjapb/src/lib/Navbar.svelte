@@ -2,6 +2,8 @@
     <a href="/">Home</a>
     <a href="/register">Register</a>
     <a href="/login">Login</a>
+    <a href="/signup">Sign Up</a>
+    
     <a data-sveltekit-preload-data=off href="/auth">Auth</a>
     <a data-sveltekit-preload-data=off href="/logout">Logout</a>    
 </nav>
