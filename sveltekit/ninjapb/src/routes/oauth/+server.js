@@ -10,6 +10,8 @@ export const GET = async({ locals, url, cookies }) => {
     const state = await url.searchParams.get('state');
     const code = await url.searchParams.get('code');
 
+    console.log('URL get: ', url.searchParams);
+
     const authMethods = await locals.userPb?.collection('users').listAuthMethods();
     if (!authMethods.authProviders) {
         console.log('no auth providers');
@@ -34,6 +36,10 @@ export const GET = async({ locals, url, cookies }) => {
     } catch(err) {
         console.log('error signing up with OAuth2', err);
     } 
+
+    console.log('valid: ', locals.userPb.authStore.isValid);
+    console.log('TOKEN: ', locals.userPb.authStore.token);
+    console.log('MODEL: ', locals.userPb.authStore.model.id);
     
     throw redirect(303, '/');
 

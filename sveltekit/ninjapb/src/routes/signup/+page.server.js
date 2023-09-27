@@ -32,7 +32,8 @@ export const actions = {
 
         console.log('OAuth2 VERIFIER: ', cookies.get('verifier'));
        
-
+        console.log('URL: ', authProviderRedirect);
+        
         throw redirect(302, authProviderRedirect);
     }
 }
