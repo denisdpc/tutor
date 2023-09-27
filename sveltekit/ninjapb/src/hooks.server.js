@@ -3,8 +3,8 @@ import PocketBase from 'pocketbase'
 
 export const handle = async({ event, resolve }) => {
     event.locals.userPb = new PocketBase("http://127.0.0.1:8090");
-
     event.locals.userPb.authStore.loadFromCookie(event.request.headers.get('cookie') || '');
+
     try {
         // get an up-to-date auth store state by verifying and refreshing the loaded auth model (if any)
         event.locals.userPb.authStore.isValid && await event.locals.userPb.collection('users').authRefresh();
