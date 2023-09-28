@@ -40,6 +40,10 @@ export const GET = async({ locals, url, cookies }) => {
     console.log('valid: ', locals.userPb.authStore.isValid);
     console.log('TOKEN: ', locals.userPb.authStore.token);
     console.log('MODEL: ', locals.userPb.authStore.model.id);
+    console.log('email: ', locals.userPb.authStore.model.email);
+    console.log('---------------');
+    console.log('RECORD: \n', locals.userPb.authStore);
+    console.log('---------------');
     
     throw redirect(303, '/');
 
