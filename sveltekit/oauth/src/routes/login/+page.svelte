@@ -6,13 +6,13 @@
 
     import { onMount } from "svelte";
 
-    onMount(() => {
-        if (!$page.data.session) {
-            setTimeout(()=> {
-                signIn('google', {callbackUrl: '/protected'})
-            },3000); // redireciona para página de login
-        }
-    });
+    // onMount(() => {
+    //     if (!$page.data.session) {
+    //         setTimeout(()=> {
+    //             signIn('google', {callbackUrl: '/protected'})
+    //         },3000); // redireciona para página de login
+    //     }
+    // });
 </script>
 
 <br>
