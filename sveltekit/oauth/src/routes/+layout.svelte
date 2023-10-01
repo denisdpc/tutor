@@ -11,16 +11,44 @@
     }
 </script>
 
-<nav>
-    <a href="/">Home</a> |
-    <a href='/protected'>protegido</a> |
-    {#if $page.data.session}
-        { $page.data.session.user?.name } | { $page.data.session.user?.email } |
-        <img src="{ $page.data.session.user?.image }" alt="foto"> |
-        <button on:click={handleSignOut}>Sign out</button> 
-    {:else}
-        <button on:click={handleGoogleSignIn}>Login</button>
-    {/if}    
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">Todo</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">                                
+                <li class="nav-item">
+                    <a class="nav-link" href="/protected">Protegido</a>                    
+                </li>                
+            </ul>
+
+            {#if $page.data.session}
+                <div class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">                        
+                        <img
+                        src="{ $page.data.session.user?.image }"
+                        class="rounded-circle"
+                        height="50"
+                        alt="Black and White Portrait of a Man"
+                        loading="lazy" />                        
+                        <br>{ $page.data.session.user?.name }
+                        <br>{ $page.data.session.user?.email }                        
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><a class="dropdown-item" href="#">Action</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#"><button class="btn btn-warning" on:click={handleSignOut}>Logout</button> </a></li>
+                    </ul>
+                </div>
+            {:else}
+                <button class="btn btn-info" on:click={handleGoogleSignIn}>Login</button>
+            {/if}
+        </div>
+    </div>
 </nav>
 
-  <slot />
+<slot />
