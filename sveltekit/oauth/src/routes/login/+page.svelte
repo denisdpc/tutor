@@ -1,26 +1,13 @@
 <script>
-    import { signIn, signOut } from '@auth/sveltekit/client';
     import { page } from '$app/stores';
+    import { signIn } from '@auth/sveltekit/client';
 
-    const handleGoogleSignIn = () => {
-        signIn('google', {callbackUrl: '/protected'});
-    }
+    import { onMount } from "svelte";
 
-    const handleSignOut = () => {
-        signOut();
-    }
+    onMount(() => {
+        if (!$page.data.session) {
+            signIn('google', {callbackUrl: '/protected'});
+        }
+    });
+
 </script>
-   
-<div class="container">
-    {#if !$page.data.session}        
-        <button on:click={handleGoogleSignIn}>
-            Continue with Google
-        </button>
-    {/if}
-
-    {#if $page.data.session}
-        <div>
-            <button on:click={handleSignOut}>Sign out</button>
-       </div>
-    {/if}
-</div>
