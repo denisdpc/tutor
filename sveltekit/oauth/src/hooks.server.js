@@ -6,8 +6,8 @@ export const handle = SvelteKitAuth({
     providers: [
         GoogleProvider({ clientId: GOOGLE_CLIENT_ID, clientSecret: GOOGLE_CLIENT_SECRET })
     ],
-    pages: {
-        signIn: '/login',
+    pages: {                    // customizar páginas de login / logout
+        signIn: '/login',       // pode ser comentado para utilizar default
         signOut: '/logout'
     }
 });

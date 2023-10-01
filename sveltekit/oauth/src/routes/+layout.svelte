@@ -15,7 +15,9 @@
     <a href="/">Home</a> |
     <a href='/protected'>protegido</a> |
     {#if $page.data.session}
-        <button on:click={handleSignOut}>Sign out</button>
+        { $page.data.session.user?.name } | { $page.data.session.user?.email } |
+        <img src="{ $page.data.session.user?.image }" alt="foto"> |
+        <button on:click={handleSignOut}>Sign out</button> 
     {:else}
         <button on:click={handleGoogleSignIn}>Login</button>
     {/if}    
