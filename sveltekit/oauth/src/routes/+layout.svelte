@@ -9,6 +9,10 @@
     const handleSignOut = () => {
         signOut();
     }
+
+    const testFunc = () => {
+      console.log("TESTE");
+    }
 </script>
 
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -61,16 +65,37 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">Log in</h1>
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Login</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body mx-auto">
-          ...
+          <center>
+            <button class="btn btn-outline-dark" on:click={handleGoogleSignIn}>
+              <img width="20px" style="margin-bottom:3px; margin-right:5px" alt="Google sign-in" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png" />
+              Login com Google
+            </button>
+          </center>
+
+          <hr>
+
+          <form class="row g-3">
+            <div class="col-auto">              
+              <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Email">
+            </div>
+            <div class="col-auto">              
+              <input type="password" class="form-control" id="inputPassword2" placeholder="Senha">
+            </div>
+
+            <center>
+            <div class="col-auto">
+              <button class="btn btn-primary mb-3" on:click={testFunc}>confirmar</button>
+            </div>
+            </center>
+
+          </form>
+
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
-        </div>
+        
       </div>
     </div>
   </div>
