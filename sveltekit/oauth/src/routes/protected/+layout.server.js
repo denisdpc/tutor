@@ -4,8 +4,9 @@ export const load = async (event) => {
     const session = await event.locals.getSession();
 
     if (!session?.user) {        
-        throw redirect(307, 'auth/signin');
-        //throw redirect(307, 'login');
+        console.log("redireciona para página em /login")
+        //throw redirect(307, 'auth/signin');
+        throw redirect(307, 'login');
         //console.log("sem sessao")
     }
 
