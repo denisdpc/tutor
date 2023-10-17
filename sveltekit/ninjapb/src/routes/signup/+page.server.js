@@ -23,6 +23,7 @@ export const actions = {
         const redirectURL = `${url.origin}/oauth`;
         const googleAuthProvider = authMethods.authProviders[0];
         const authProviderRedirect = `${googleAuthProvider.authUrl}${redirectURL}`;
+        console.log("URL: ", authProviderRedirect)
 
         const state = googleAuthProvider.state;
         const verifier = googleAuthProvider.codeVerifier;

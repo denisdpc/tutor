@@ -17,8 +17,8 @@ export const handle = async({ event, resolve }) => {
 
     const response = await resolve(event);
 
-    // response.headers.set(   // google auth deixa de funcionar
-	// 	'set-cookie',       // muda verifier
+    // response.headers.set(                            // google auth deixa de funcionar
+	// 	'set-cookie',                                   // muda verifier
 	// 	event.locals.userPb.authStore.exportToCookie()
 	// );    
 
