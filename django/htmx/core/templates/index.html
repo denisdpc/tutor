@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Home</h1>
+
+<a  id="htmx-link" 
+    href="{% url 'core:index' %}" 
+    hx-boost="true" 
+    hx-target="#htmx-content">new page</a>
+
+<ul id="htmx-content"></ul>
+
+<div id="page-content">
+    {% include 'form.html' %}
+</div>
+
+<!-- <div hx-trigger="every 2s" 
+     hx-target="#htmx-content"
+     hx-get="{% url 'core:success' %}"
+     hx-swap="beforeend">
+</div> -->
+
+{% endblock %}
